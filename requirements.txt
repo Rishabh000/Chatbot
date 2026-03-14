@@ -1,0 +1,15 @@
+fastapi==0.115.6
+uvicorn[standard]==0.34.0
+sqlalchemy==2.0.36
+aiosqlite==0.20.0
+greenlet==3.3.1
+langchain==0.3.13
+langchain-google-genai==2.0.8
+langchain-community==0.3.13
+google-genai==1.5.0
+chromadb==0.5.23
+requests>=2.31.0
+python-dotenv==1.0.1
+slowapi==0.1.9
+pydantic==2.10.4
+pydantic-settings==2.7.1
