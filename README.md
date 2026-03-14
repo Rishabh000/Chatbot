@@ -120,25 +120,3 @@ Cache check → Guardrail → Retriever → Prompt Builder → LLM → Verifier 
 | `content` | Text | The message body |
 | `was_blocked` | Boolean | `True` if the guardrail blocked this response |
 | `created_at` | DateTime | Timestamp |
-
-## Traffic Management
-
-### Built-in
-
-- **Rate Limiting** — 20 req/min per IP (configurable via `RATE_LIMIT` in `.env`)
-- **Async** — Non-blocking I/O throughout (FastAPI + async SQLAlchemy + async LLM)
-- **Connection Pooling** — SQLAlchemy pool with stale connection detection
-- **Response Cache** — In-memory LRU avoids duplicate Gemini calls
-
-### Scaling for Production
-
-| Strategy | What It Solves | Complexity |
-|----------|---------------|------------|
-| SlowAPI rate limiting | Abuse / DDoS at app level | Built-in |
-| In-memory LRU cache | Repeated questions, LLM cost | Built-in |
-| Async FastAPI | Concurrent request handling | Built-in |
-| Multiple Uvicorn workers | CPU-bound bottlenecks | Low |
-| Nginx reverse proxy | TLS, load balancing, proxy-level rate limiting | Medium |
-| PostgreSQL + connection pooling | Database concurrency at scale | Medium |
-| Redis (replace LRU cache) | Shared cache across workers | Medium |
-| Container orchestration (K8s) | Auto-scaling, zero-downtime deploys | High |
