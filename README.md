@@ -2,6 +2,8 @@
 
 A RAG-powered chatbot that answers real estate questions using Wikipedia as its knowledge base. Built with FastAPI, LangChain, ChromaDB, and Gemini.
 
+## Demo: https://real-estatechatbot.vercel.app/
+
 ## Features
 
 - **Wikipedia-backed knowledge** — Fetches and indexes 28 real estate Wikipedia pages (with source attribution) into a vector store
