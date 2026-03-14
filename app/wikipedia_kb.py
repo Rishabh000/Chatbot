@@ -38,6 +38,7 @@ REAL_ESTATE_TOPICS = [
 ]
 
 WIKI_API = "https://en.wikipedia.org/w/api.php"
+HEADERS = {"User-Agent": "RealEstateChatbot/1.0 (https://github.com/Rishabh000/Chatbot)"}
 
 
 def _fetch_page(title: str) -> tuple[str, str] | None:
@@ -50,7 +51,7 @@ def _fetch_page(title: str) -> tuple[str, str] | None:
         "format": "json",
     }
     try:
-        resp = requests.get(WIKI_API, params=params, timeout=15)
+        resp = requests.get(WIKI_API, params=params, headers=HEADERS, timeout=15)
         resp.raise_for_status()
         pages = resp.json()["query"]["pages"]
         page = next(iter(pages.values()))
